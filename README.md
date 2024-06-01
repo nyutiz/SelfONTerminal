@@ -112,7 +112,7 @@ The database is structured with descriptors that define the fields of each accou
 
 ## Customization
 
-You can customize the maximum print length of the console output by modifying the `maxPrintLength` variable in the `Main` class.
+You can customize the maximum print length of the console output by modifying the `maxPrintLength` variable in the `Main` class. You can modify the Database by modifying the first line of the file (ex Id;Name;Password or Credit;Username;Email;....)
 
 ## Contributing
 
