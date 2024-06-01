@@ -39,13 +39,13 @@ cd SelfON
 Compile the Java files:
 
 ```sh
-javac -d bin src/nyutiz/*.java
+javac *.java
 ```
 
 Run the application:
 
 ```sh
-java -cp bin nyutiz.Main
+java Main
 ```
 
 ## Usage
