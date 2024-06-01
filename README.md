@@ -74,11 +74,11 @@ To load an existing database, select option `0` and provide the path to the data
 
 ### Password Manager
 
-To access the Password Manager, select option `1`. Ensure that a database is loaded before accessing the Password Manager.
+To access the Password Manager, select option `1`. Ensure that a database is loaded before accessing the Password Manager. (not implemented yet)
 
 ### Task Manager
 
-To access the Task Manager, select option `2`. Ensure that a database is loaded before accessing the Task Manager.
+To access the Task Manager, select option `2`. Ensure that a database is loaded before accessing the Task Manager. (not implemented yet)
 
 ### Database Manager
 
