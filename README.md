@@ -48,6 +48,8 @@ Run the application:
 java Main
 ```
 
+(Or Use Maven)
+
 ## Usage
 
 ### Main Menu
