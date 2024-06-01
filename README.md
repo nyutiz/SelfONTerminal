@@ -25,7 +25,7 @@ SelfON is a console-based application that provides functionalities for managing
 To install the SelfON package, clone the repository to your local machine:
 
 ```sh
-git clone https://github.com/yourusername/SelfON.git
+git clone https://github.com/nyutiz/SelfON.git
 ```
 
 Navigate to the project directory:
