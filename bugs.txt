@@ -1,4 +1,4 @@
 -modifier mauvais ordre-
 -Id db si inexistant-
-Create Database without one loaded
-A Database is already loaded crash
+-Create Database without one loaded-
+-A Database is already loaded crash-
