@@ -188,3 +188,9 @@ You can customize the maximum print length of the console output by modifying th
 We welcome contributions! Please fork the repository and create a pull request with your changes.
 
 I will make the Password Manager as well as the task manager in the future
+
+## Ideas
+
+Add multiple database 
+-- can be configured with a .config file
+--- database for password manager, for task manager 
