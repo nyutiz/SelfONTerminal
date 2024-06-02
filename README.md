@@ -192,5 +192,7 @@ I will make the Password Manager as well as the task manager in the future
 ## Ideas
 
 Add multiple database 
+
 -- can be configured with a .config file
+
 --- database for password manager, for task manager 
