@@ -48,7 +48,7 @@ Run the application:
 java Main
 ```
 
-###OR
+##OR
 
 Run the jar with
 
