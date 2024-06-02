@@ -4,6 +4,8 @@ SelfON is a console-based application that provides functionalities for managing
 
 ![Demo](https://github.com/nyutiz/SelfONTerminal/blob/main/example.png)
 
+![Demo](https://github.com/nyutiz/SelfONTerminal/blob/main/example2.png)
+
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
