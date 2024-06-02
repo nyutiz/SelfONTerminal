@@ -186,3 +186,5 @@ You can customize the maximum print length of the console output by modifying th
 ## Contributing
 
 We welcome contributions! Please fork the repository and create a pull request with your changes.
+
+I will make the Password Manager as well as the task manager in the future
