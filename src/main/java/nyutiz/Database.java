@@ -9,7 +9,8 @@ import static nyutiz.Printer.println;
 public class Database {
     public List<Data> dataList = new ArrayList<>();
     public List<String> descriptors = new ArrayList<>();
-    public String baseFile = "database.txt";
+    public String baseFile;
+    public static String separator = ";";
     public int key = 0;
 
     public void app() throws Exception {
@@ -19,9 +20,10 @@ public class Database {
             int asciiValue = password.charAt(i);
             key = key + asciiValue;
         }
-        start();
+        //start();
     }
 
+    /*
     void start() throws Exception {
         Database database = new Database();
         database.loadDatabase(baseFile);
@@ -80,6 +82,7 @@ public class Database {
                 start();
         }
     }
+     */
 
     public List<String> getDescriptors() {
         return descriptors;
@@ -99,13 +102,14 @@ public class Database {
         }
     }
 
-    public void loadDatabase(String baseFile) throws Exception {
+    public boolean loadDatabase(String baseFile) {
         this.baseFile = baseFile;
-        try (BufferedReader reader = new BufferedReader(new FileReader(baseFile))) {
+        try  {
+            BufferedReader reader = new BufferedReader(new FileReader(baseFile));
             String line;
             int i = 0;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(";");
+                String[] parts = line.split(separator);
                 if (i == 0) {
                     for (String part : parts) {
                         descriptors.add(part);
@@ -120,6 +124,10 @@ public class Database {
                 dataList.add(data);
                 i++;
             }
+            return true;
+        } catch (Exception e) {
+            println(String.valueOf(e));
+            return false;
         }
     }
 
@@ -136,13 +144,13 @@ public class Database {
 
     public void saveDatabase(String baseFile) throws Exception {
         try (FileWriter writer = new FileWriter(baseFile)) {
-            writer.write(String.join(";", descriptors) + "\n");
+            writer.write(String.join(separator, descriptors) + "\n");
             for (Data data : dataList) {
                 List<String> values = new ArrayList<>();
                 for (String descriptor : descriptors) {
                     values.add(data.getData(descriptor));
                 }
-                writer.write(String.join(";", values) + "\n");
+                writer.write(String.join(separator, values) + "\n");
             }
         }
     }
@@ -164,7 +172,7 @@ public class Database {
     public void addData(Data data) throws Exception {
         dataList.add(data);
         saveDatabase(baseFile);
-        println("Nouveau client ajouté.");
+        println("New Account Added");
     }
 
     public void updateData(String id, String key, String newValue) throws Exception {
@@ -192,7 +200,7 @@ public class Database {
             System.out.println(a);
             a.setLength(0);
         }
-        println("╝");
+        println("║");
     }
 
     public static void initializeDatabase(String fileName, String... datas) {
@@ -203,10 +211,10 @@ public class Database {
             }
 
             try (FileWriter writer = new FileWriter(file)) {
-                writer.write("Id;" + String.join(";", datas) + System.lineSeparator());
+                writer.write("Id;" + String.join(separator, datas) + System.lineSeparator());
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            println(String.valueOf(e));
         }
     }
 

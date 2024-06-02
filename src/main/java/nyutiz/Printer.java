@@ -37,24 +37,47 @@ public class Printer {
         int remainingPadding = (k - textLength) % (2 * spaceLength);
 
         StringBuilder finalText = new StringBuilder();
-        finalText.append("╠");
-        for (int i = 0; i < padding; i++) {
-            finalText.append(space);
+        if (space.equals(" ")){
+            finalText.append("║");
+            for (int i = 0; i < padding; i++) {
+                finalText.append(space);
+            }
+            finalText.append(text);
+            for (int i = 0; i < padding; i++) {
+                finalText.append(space);
+            }
+            if (remainingPadding > 0) {
+                finalText.append(space, 0, remainingPadding);
+            }
+            if (lastPrint.endsWith("╣") || lastPrint.endsWith("╗") || lastPrint.endsWith("║")) {
+                finalText.append("║");
+            } else {
+                finalText.append("╗");
+            }
+            System.out.println(finalText);
+            lastPrint = finalText.toString();
         }
-        finalText.append(text);
-        for (int i = 0; i < padding; i++) {
-            finalText.append(space);
+        else{
+            finalText.append("╠");
+            for (int i = 0; i < padding; i++) {
+                finalText.append(space);
+            }
+            finalText.append(text);
+            for (int i = 0; i < padding; i++) {
+                finalText.append(space);
+            }
+            if (remainingPadding > 0) {
+                finalText.append(space, 0, remainingPadding);
+            }
+            if (lastPrint.endsWith("╣") || lastPrint.endsWith("╗") || lastPrint.endsWith("║")) {
+                finalText.append("╣");
+            } else {
+                finalText.append("╗");
+            }
+            System.out.println(finalText);
+            lastPrint = finalText.toString();
         }
-        if (remainingPadding > 0) {
-            finalText.append(space, 0, remainingPadding);
-        }
-        if (lastPrint.endsWith("╣") || lastPrint.endsWith("╗") || lastPrint.endsWith("║")) {
-            finalText.append("╣");
-        } else {
-            finalText.append("╗");
-        }
-        System.out.println(finalText);
-        lastPrint = finalText.toString();
+
     }
 
     public static void printLarge(String text){
@@ -84,39 +107,50 @@ public class Printer {
         lastPrint = "╠ " + text;
     }
     public static void println(String text){
-        if (text.equals("╝") || text.equals("╣") || text.equals("╗") || text.equals(" ")){
-            String finalText = null;
-            switch (text){
-                case "╝":
-                    finalText = "╠" + "═".repeat(maxPrintLength - 2) + "╝";
-                    System.out.println(finalText);
-                    lastPrint = finalText;
-                    break;
-                case "╣":
-                    finalText = "╠" + "═".repeat(maxPrintLength - 2) + "╣";
-                    System.out.println(finalText);
-                    lastPrint = finalText;
-                    break;
-                case "╗":
-                    finalText = "╠" + "═".repeat(maxPrintLength - 2) + "╗";
-                    System.out.println(finalText);
-                    lastPrint = finalText;
-                    break;
-                case " ":
-                    finalText = "║" + " ".repeat(maxPrintLength - 2) + "║";
-                    System.out.println(finalText);
-                    lastPrint = finalText;
-                    break;
-            }
+
+        if (text.length() > maxPrintLength) {
+            printLarge(text);
         }
         else {
-            StringBuilder finalText = new StringBuilder(text);
-            while (finalText.length() < maxPrintLength - 3){
-                finalText.append(" ");
+            if (text.equals("╝") || text.equals("╣") || text.equals("╗") || text.equals(" ") || text.equals("║")){
+                String finalText = null;
+                switch (text){
+                    case "╝":
+                        finalText = "╠" + "═".repeat(maxPrintLength - 2) + "╝";
+                        System.out.println(finalText);
+                        lastPrint = finalText;
+                        break;
+                    case "╣":
+                        finalText = "╠" + "═".repeat(maxPrintLength - 2) + "╣";
+                        System.out.println(finalText);
+                        lastPrint = finalText;
+                        break;
+                    case "╗":
+                        finalText = "╠" + "═".repeat(maxPrintLength - 2) + "╗";
+                        System.out.println(finalText);
+                        lastPrint = finalText;
+                        break;
+                    case " ":
+                        finalText = "║" + " ".repeat(maxPrintLength - 2) + "║";
+                        System.out.println(finalText);
+                        lastPrint = finalText;
+                        break;
+                    case "║":
+                        finalText = "║" + "═".repeat(maxPrintLength - 2) + "║";
+                        System.out.println(finalText);
+                        lastPrint = finalText;
+                        break;
+                }
             }
-            finalText.append("║");
-            System.out.println("╠ " + finalText);
-            lastPrint = "╠ " + finalText;
+            else {
+                StringBuilder finalText = new StringBuilder(text);
+                while (finalText.length() < maxPrintLength - 3){
+                    finalText.append(" ");
+                }
+                finalText.append("║");
+                System.out.println("╠ " + finalText);
+                lastPrint = "╠ " + finalText;
+            }
         }
     }
     public static void printf(String format, Object... args) {
@@ -135,5 +169,6 @@ public class Printer {
 
     public static void setMaxPrintLength(int maxPrintLength) {
         Printer.maxPrintLength = maxPrintLength;
+        Main.maxPrintLength = maxPrintLength;
     }
 }
