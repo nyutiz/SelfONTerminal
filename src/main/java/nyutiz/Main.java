@@ -29,7 +29,6 @@ public class Main {
 
         }
 
-
         printWith(" Welcome to SelfON ", "╔", "╗");
         println("0 : Load Database");
         println("1 : Password Manager");
@@ -48,10 +47,11 @@ public class Main {
         lastPrint = " ";
         switch (choice){
             case 0:
-                if (database != null){
-                    println("A Database is already loaded");
-                    break;
-                }
+                //if (database != null){
+                //    println("A Database is already loaded");
+                //    start();
+                //    break;
+                //}
                 print("Please provide the Database path : ");
                 database = new Database();
                 baseFile = scanner.nextLine();
@@ -84,15 +84,53 @@ public class Main {
                     println("╗");
                     printWith(" Please load the database or create one ", "!");
                     println("╝");
-                    start();
-                    break;
+                    println("0 : Load Database");
+                    println("1 : Create Database");
+                    println("2 : Return to the menu");
+                    System.out.print("╠══ ");
+                    lastPrint = " ";
+                    int select;
+                    select = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if(select == 0){
+                        print("Please provide the Database path : ");
+                        database = new Database();
+                        baseFile = scanner.nextLine();
+                        database.loadDatabase(baseFile);
+                        start();
+                        break;
+                    }
+                    else if (select == 1){
+                        print("Enter database name: ");
+                        String dbName = scanner.nextLine();
+                        lastPrint = " ";
+                        print("Enter data (space-separated): ");
+                        String[] datas = scanner.nextLine().replaceAll(" ", ";").split(";");
+                        lastPrint = " ";
+                        println("Database Name: " + dbName);
+                        println("Data: " + Arrays.toString(datas));
+
+                        initializeDatabase(dbName, datas);
+
+                        start();
+                        break;
+                    }
+                    else if(select == 2){
+                        start();
+                        break;
+                    }
+                    else {
+                        start();
+                        break;
+                    }
                 }
                 println("╗");
-                println("1 Create Account");
-                println("2 Edit Account");
-                println("3 Show Accounts");
-                println("4 Sort Database");
-                println("5 Create Database");
+                println("1 : Create Account");
+                println("2 : Edit Account");
+                println("3 : Show Accounts");
+                println("4 : Sort Database");
+                println("5 : Create Database");
                 System.out.print("╠══ ");
                 lastPrint = " ";
                 int select;
@@ -123,7 +161,7 @@ public class Main {
                         print("Id : ");
                         id = scanner.nextLine();
                         Data client = database.findClientById(id);
-                        println(client.getDatas());
+                        println(client.getDatas().toString());
                         println("Modifier ");
                         for (int i = 1; i < database.getDescriptors().size(); i++) {
                             println((i) + " " + database.getDescriptors().get(i));

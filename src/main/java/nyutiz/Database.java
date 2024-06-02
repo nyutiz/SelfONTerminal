@@ -203,7 +203,7 @@ public class Database {
             }
 
             try (FileWriter writer = new FileWriter(file)) {
-                writer.write(String.join(";", datas) + System.lineSeparator());
+                writer.write("Id;" + String.join(";", datas) + System.lineSeparator());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

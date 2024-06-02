@@ -1,6 +1,6 @@
 package nyutiz;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.StringJoiner;
 
@@ -8,7 +8,7 @@ public class Data {
     private Map<String, String> dataMap;
 
     public Data() {
-        this.dataMap = new HashMap<>();
+        this.dataMap = new LinkedHashMap<>();
     }
 
     public void setData(String key, String value) {
@@ -30,5 +30,4 @@ public class Data {
     public Map<String, String> getDataMap() {
         return dataMap;
     }
-
 }
