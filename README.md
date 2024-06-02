@@ -33,7 +33,7 @@ git clone https://github.com/nyutiz/SelfONTerminal.git
 Navigate to the project directory:
 
 ```sh
-cd SelfON
+cd main/src/main/java/nyutiz
 ```
 
 Compile the Java files:
