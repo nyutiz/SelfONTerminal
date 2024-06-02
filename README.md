@@ -48,6 +48,14 @@ Run the application:
 java Main
 ```
 
+## OR
+
+Run the jar with
+
+```sh
+java -jar SelfONTerminal.jar
+```
+
 (Or Use Maven)
 
 ## Usage
