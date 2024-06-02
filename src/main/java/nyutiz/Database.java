@@ -200,7 +200,6 @@ public class Database {
             System.out.println(a);
             a.setLength(0);
         }
-        println("║");
     }
 
     public static void initializeDatabase(String fileName, String... datas) {

@@ -26,21 +26,19 @@ public class Main {
     public static void main(String[] args) throws Exception {
         //System.out.println("╔══════════════════════════════════════════════════════════╗");
 
-        try {
-            if (args[0] != null){
-                database = new Database();
-                database.loadDatabase(args[0]);
-                dbMap.put(baseFile, database);
-                currentDatabase = baseFile;
-                baseFile = args[0];
-            }
-        } catch (Exception e) {
-
-        }
+        //try {
+        //    if (args[0] != null){
+        //        database = new Database();
+        //        database.loadDatabase(args[0]);
+        //        dbMap.put(baseFile, database);
+        //        currentDatabase = baseFile;
+        //        baseFile = args[0];
+        //    }
+        //} catch (Exception e) {
+//
+        //}
 
         setMaxPrintLength(70);
-
-        loadConfig("db.config");
 
         printWith(" Welcome to SelfON ", "╔", "╗");
         println("0 : Load Database / Config");
@@ -82,8 +80,9 @@ public class Main {
                         baseFile = scanner.nextLine();
                         if (database.loadDatabase(baseFile))
                         {
-                            dbMap.put(baseFile, database);
-                            currentDatabase = baseFile;
+                            String filename = getLastSegment(baseFile);
+                            dbMap.put(filename, database);
+                            currentDatabase = filename;
                             println("Database *" + baseFile + "* loaded");
                             println("╣");
                             start();
@@ -101,7 +100,8 @@ public class Main {
 
                         if (loadConfig(path))
                         {
-                            config = path;
+                            String filename = getLastSegment(path);
+                            config = filename;
                             println("Config file *" + config + "* loaded");
                             println("PasswordDB : " + passwordDB + "  " + "TaskManagerDB : " + taskManagerDB);
                             println("╣");
@@ -125,8 +125,9 @@ public class Main {
                 baseFile = scanner.nextLine();
                 if (database.loadDatabase(baseFile))
                 {
-                    dbMap.put(baseFile, database);
-                    currentDatabase = baseFile;
+                    String filename = getLastSegment(baseFile);
+                    dbMap.put(filename, database);
+                    currentDatabase = filename;
                     println("Database *" + baseFile + "* loaded");
                     println("╣");
                     start();
@@ -182,8 +183,9 @@ public class Main {
                             baseFile = scanner.nextLine();
                             if (database.loadDatabase(baseFile))
                             {
-                                dbMap.put(baseFile, database);
-                                currentDatabase = baseFile;
+                                String filename = getLastSegment(baseFile);
+                                dbMap.put(filename, database);
+                                currentDatabase = filename;
                                 println("Database *" + baseFile + "* loaded");
                                 println("╣");
                                 start();
@@ -241,6 +243,7 @@ public class Main {
                         if (dbMap.containsKey(current)){
                             println("Database Selected");
                             currentDatabase = current;
+                            database = dbMap.get(currentDatabase);
                             println("╣");
                             start();
                             break;
@@ -337,6 +340,7 @@ public class Main {
                         initializeDatabase(dbName, datas);
 
                         println("You need to load the database after creating one");
+                        println("You can open the created file to enter data manually");
                         println("╣");
                         start();
                         break;
@@ -380,6 +384,21 @@ public class Main {
 
     public static Database getDatabase() {
         return database;
+    }
+
+    public static String getLastSegment(String path) {
+        if (path != null){
+            int lastIndex = path.lastIndexOf('\\');
+            if (lastIndex != -1) {
+                return path.substring(lastIndex + 1);
+            } else {
+                return path;
+            }
+        }
+        else {
+            return null;
+        }
+
     }
 
 }

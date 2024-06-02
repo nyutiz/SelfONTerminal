@@ -4,3 +4,4 @@
 -A Database is already loaded crash-
 -Quand une db est pas chargé il affiche quand meme loaded-
 
+Quand on met le chemin complet ça l'affiche dans current DB et DBMap
