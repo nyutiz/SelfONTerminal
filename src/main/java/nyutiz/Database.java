@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import static nyutiz.Main.getMaxPrintLength;
-import static nyutiz.Main.println;
+import static nyutiz.Printer.println;
 
 public class Database {
     public List<Data> dataList = new ArrayList<>();
