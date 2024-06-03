@@ -3,5 +3,6 @@
 -Create Database without one loaded-
 -A Database is already loaded crash-
 -Quand une db est pas chargé il affiche quand meme loaded-
+-Quand on met le chemin complet ça l'affiche dans current DB et DBMap-
 
-Quand on met le chemin complet ça l'affiche dans current DB et DBMap
+Rajouter un = quand on est dans un sous menu par exemple Load DB / Config

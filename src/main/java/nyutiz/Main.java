@@ -67,7 +67,7 @@ public class Main {
                 println("0 : Load Database");
                 println("1 : Load Config");
                 println("2 : Return to the menu");
-                System.out.print("╠═ ");
+                System.out.print("╠══ ");
 
                 choice = scanner.nextInt();
                 scanner.nextLine();
