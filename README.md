@@ -205,6 +205,7 @@ Add multiple database
 
 --- database for password manager, for task manager 
 --- connected to the browser with an extension which save password
+--- encryption for password
 
 ---- Add more customization to the database like for the separator
 
