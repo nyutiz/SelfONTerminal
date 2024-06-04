@@ -211,6 +211,8 @@ I will make the Password Manager as well as the task manager in the future
 
  backup for data deletion
 
+ algorithm that fill automaticly empty field of a task
+
 - Add more customization to the database like for the separator
 
 - Be less Beautiful
