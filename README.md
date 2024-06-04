@@ -204,3 +204,7 @@ Add multiple database
 -- can be configured with a .config file
 
 --- database for password manager, for task manager 
+
+---- Add more customization to the database like for the separator
+
+----- Be less Beautiful
