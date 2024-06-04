@@ -204,6 +204,7 @@ Add multiple database
 -- can be configured with a .config file
 
 --- database for password manager, for task manager 
+--- connected to the browser with an extension which save password
 
 ---- Add more customization to the database like for the separator
 
