@@ -1,6 +1,6 @@
 # SelfON
 
-SelfON is a console-based application that provides functionalities for managing a password manager, a task manager, and a database manager. This README explains how to use the SelfON package and the available functionalities.
+SelfON is a console-based application designed to help users manage their passwords, tasks, and general database entries efficiently. This README provides comprehensive instructions on how to install, use, and customize the SelfON application, along with a detailed overview of its features.
 
 ![Demo](https://github.com/nyutiz/SelfONTerminal/blob/main/example2.png)
 
@@ -18,37 +18,14 @@ SelfON is a console-based application that provides functionalities for managing
     - [Sorting the Database](#sorting-the-database)
     - [Creating a Database](#creating-a-database)
 - [Database Structure](#database-structure)
-- [Function Descriptions](#function-descriptions)
-- [Customization](#customization)
+- [Printer Class](#printer-class)
+  - [Usage](#usage-1)
+    - [Available Methods](#available-methods)
+    - [Example Usage](#example-usage)
+  - [Customization](#customization)
+- [Program Description](#program-description)
 - [Contributing](#contributing)
-  
-## Installation
-
-To install the SelfON package, clone the repository to your local machine:
-
-```sh
-git clone https://github.com/nyutiz/SelfONTerminal.git
-```
-
-Navigate to the project directory:
-
-```sh
-cd main/src/main/java/nyutiz
-```
-
-Compile the Java files:
-
-```sh
-javac *.java
-```
-
-Run the application:
-
-```sh
-java Main
-```
-
-## OR
+- [Ideas](#ideas)
 
 Run the jar with
 
@@ -56,163 +33,199 @@ Run the jar with
 java -jar SelfONTerminal.jar
 ```
 
-(Or Use Maven)
+## Program Description
+
+The `Main` class is the entry point of the SelfON application. It provides a console-based interface for managing databases, password credentials, and tasks. Below is an in-depth look at how the program functions and how to use it.
+
+### How It Works
+
+1. **Initialization:** When the application starts, it initializes by setting the maximum print length and displaying the main menu using the `Printer` class to format the output.
+
+2. **Main Menu:** The main menu presents the user with options to:
+   - Load a database or configuration
+   - Access the password manager
+   - Access the task manager
+   - Access the general database manager
+
+3. **Loading Databases:**
+   - **Option 0:** Load an existing database by providing the file path. This database is then stored in a map (`dbMap`) for easy access. 
+   - **Option 1:** Load a configuration file that can specify paths for password and task manager databases.
+
+4. **Password Manager:**
+   - **Register Credentials:** Add new credentials to the password database.
+   - **Show a Credential:** Retrieve and display specific credentials.
+   - **Edit Credentials:** Modify existing credentials in the database.
+   - **Delete a Credential:** Remove credentials from the database.
+
+5. **Task Manager:**
+   - **Add Task:** Create a new task with various descriptors such as priority and status.
+   - **Show all Tasks:** Display all tasks in the database.
+   - **Show a Task:** Retrieve and display a specific task.
+   - **Edit Task:** Modify existing tasks in the database.
+   - **Sort Task:** Sort tasks based on specified descriptors.
+   - **Delete a Task:** Remove tasks from the database.
+
+6. **Database Manager:**
+   - **Select Current Database:** Choose which database to operate on.
+   - **Create Account:** Add new accounts to the database.
+   - **Edit Account:** Modify existing accounts in the database.
+   - **Show Accounts:** Display all accounts in the database.
+   - **Delete Account:** Remove accounts from the database.
+   - **Sort Database:** Sort the database based on specified descriptors.
+   - **Create Database:** Create a new database with specified fields.
+
+7. **User Interaction:** The application uses a `Scanner` object to read user input and execute commands accordingly, providing a responsive and interactive console experience.
+
+### Using the Program
+
+1. **Starting the Application:**
+   - Run the application using `java -jar SelfONTerminal.jar`.
+   - You will be greeted with the main menu.
+
+2. **Loading a Database or Configuration:**
+   - Select option `0` from the main menu.
+   - Choose to load a database or a configuration file.
+   - Provide the file path when prompted.
+
+3. **Using the Password Manager:**
+   - Ensure a password database is loaded.
+   - Select option `1` from the main menu.
+   - Follow the prompts to register, show, edit, or delete credentials.
+
+4. **Using the Task Manager:**
+   - Ensure a task manager database is loaded.
+   - Select option `2` from the main menu.
+   - Follow the prompts to add, show, edit, sort, or delete tasks.
+
+5. **Using the Database Manager:**
+   - Ensure a general database is loaded or create a new one.
+   - Select option `3` from the main menu.
+   - Follow the prompts to select, create, edit, show, sort, or delete accounts.
+
+# Printer Class
+
+The `Printer` class provides various static methods for formatted printing to the console. It allows for text alignment, padding, and formatted output to enhance the visual presentation of console-based applications. 
 
 ## Usage
 
-### Main Menu
-
-Upon running the application, you will see the following main menu:
-
-```
-╔════════════════════════ Welcome to SelfON ═════════════════════════╗
-╠ 0 : Load Database                                                  ║
-╠ 1 : Password Manager                                               ║
-╠ 2 : Task Manager                                                   ║
-╠ 3 : Database Manager                                               ║
-╠════════════════════════════════════════════════════════════════════╝
-```
-
-### Loading a Database
-
-To load an existing database, select option `0` and provide the path to the database file when prompted:
-
-```
-╠═ 0 : Load Database
-╠═ Please provide the Database path : 
-```
-
-### Password Manager
-
-To access the Password Manager, select option `1`. Ensure that a database is loaded before accessing the Password Manager. (not implemented yet)
-
-### Task Manager
-
-To access the Task Manager, select option `2`. Ensure that a database is loaded before accessing the Task Manager. (not implemented yet)
-
-### Database Manager
-
-To access the Database Manager, select option `3`. Ensure that a database is loaded before accessing the Database Manager.
-
-#### Creating an Account
-
-To create a new account, select option `1` from the Database Manager menu. You will be prompted to provide values for the account fields.
-
-#### Editing an Account
-
-To edit an existing account, select option `2` from the Database Manager menu. You will need to provide the ID of the account you wish to edit and the new values for the fields.
-
-#### Showing Accounts
-
-To display all accounts in the database, select option `3` from the Database Manager menu.
-
-#### Sorting the Database
-
-To sort the database by a specific descriptor, select option `4` from the Database Manager menu and choose the descriptor you wish to sort by.
-
-#### Creating a Database
-
-To create a new database, select option `5` from the Database Manager menu. Provide a name for the new database and the data fields.
-
-## Database Structure
-
-The database is structured with descriptors that define the fields of each account. Each account has a unique ID and additional fields as defined by the descriptors.
-
-## Function Descriptions
+### Available Methods
 
 1. **printWith(String text, String start, String end)**
-   - **Purpose:** Formats and prints a text string with specific start and end characters, padding the text with equal amounts of a specific character to fit a defined maximum length.
+   - **Description:** Prints a string with specified start and end characters, padding with `═` to fit the maximum print length.
    - **Parameters:**
      - `text`: The main text to be printed.
      - `start`: The starting characters of the formatted string.
      - `end`: The ending characters of the formatted string.
-   - **Example:** If `maxPrintLength` is 50, `start` is "╠", `end` is "╣", and `text` is "Hello", the output will be a string with "Hello" centered and padded with "═" to fit the total length of 50 characters.
+   - **Example:**
+     ```java
+     Printer.printWith("Welcome to SelfON", "╔", "╗");
+     ```
 
 2. **printWith(String text)**
-   - **Purpose:** Similar to the previous function but only adds default starting and ending characters based on the context provided by `lastPrint`.
+   - **Description:** Prints a string with padding and appropriate ending characters based on the last printed string.
    - **Parameters:**
      - `text`: The main text to be printed.
-   - **Example:** Prints the `text` padded with "═" and ending with "╗" or "╣" based on the previous print's ending character.
+   - **Example:**
+     ```java
+     Printer.printWith("Main Menu");
+     ```
 
 3. **printWith(String text, String space)**
-   - **Purpose:** Prints the text padded with a custom spacing string.
+   - **Description:** Prints a string with custom spacing string padding.
    - **Parameters:**
      - `text`: The main text to be printed.
      - `space`: The string used for padding.
-   - **Example:** If `space` is " ", the function pads the text with spaces and prints it with the appropriate ending character.
+   - **Example:**
+     ```java
+     Printer.printWith("Options", " ");
+     ```
 
 4. **printLarge(String text)**
-   - **Purpose:** Prints a large text that exceeds the `maxPrintLength`, breaking it into smaller chunks that fit the defined length.
+   - **Description:** Prints a large text that exceeds the `maxPrintLength`, breaking it into smaller chunks that fit the defined length.
    - **Parameters:**
      - `text`: The large text to be printed.
-   - **Example:** If `text` is a long string, it will be broken into segments that each fit within the maximum print length and printed line by line.
+   - **Example:**
+     ```java
+     Printer.printLarge("This is a very long text that needs to be broken into multiple lines to fit within the maximum print length.");
+     ```
 
 5. **print(String text)**
-   - **Purpose:** Prints the text without a newline, prefixed by "╠ ".
+   - **Description:** Prints the text without a newline, prefixed by "╠ ".
    - **Parameters:**
      - `text`: The text to be printed.
-   - **Example:** Prints the `text` starting with "╠ ".
+   - **Example:**
+     ```java
+     Printer.print("Loading database...");
+     ```
 
 6. **println(String text)**
-   - **Purpose:** Prints the text with a newline, formatted with padding and specific end characters depending on the input.
+   - **Description:** Prints the text with a newline, formatted with padding and specific end characters depending on the input.
    - **Parameters:**
      - `text`: The text to be printed.
-   - **Example:** Depending on the `text` content (e.g., "╝", "╣", "╗"), it prints different formatted strings. For regular text, it pads the text to fit the `maxPrintLength`.
+   - **Example:**
+     ```java
+     Printer.println("Database loaded successfully");
+     ```
 
 7. **printf(String format, Object... args)**
-   - **Purpose:** Prints formatted text using the `String.format` method, padding it to fit the maximum print length.
+   - **Description:** Prints formatted text using the `String.format` method, padding it to fit the maximum print length.
    - **Parameters:**
      - `format`: The format string.
      - `args`: Arguments referenced by the format specifiers in the format string.
-   - **Example:** If `format` is "Hello %s", and `args` is ["World"], it prints "Hello World" padded to fit the maximum length.
+   - **Example:**
+     ```java
+     Printer.printf("Hello %s", "World");
+     ```
 
-### Usage Example
+8. **setMaxPrintLength(int maxPrintLength)**
+   - **Description:** Sets the maximum print length for the console output.
+   - **Parameters:**
+     - `maxPrintLength`: The maximum length for printed lines.
+   - **Example:**
+     ```java
+     Printer.setMaxPrintLength(80);
+     ```
 
-For example, to print a centered welcome message with borders, you can use:
-```java
-printWith("Welcome to SelfON", "╔", "╗");
-```
-This would produce a formatted string with "Welcome to SelfON" centered and padded with "═", starting with "╔" and ending with "╗".
+### Example Usage
 
-For printing a large text broken into multiple lines:
-```java
-printLarge("This is a very long text that needs to be broken into multiple lines to fit within the maximum print length.");
-```
+To utilize the `Printer` class in your project:
 
-To print a formatted string:
-```java
-printf("Hello %s", "World");
-```
-This would produce "Hello World" formatted and padded to fit the maximum print length.
+1. **Print a centered welcome message with borders:**
+    ```java
+    Printer.printWith("Welcome to SelfON", "╔", "╗");
+    ```
 
-These functions are used to enhance the console-based interface of SelfON, making the text output visually structured and easy to read.
+2. **Print a large text broken into multiple lines:**
+    ```java
+    Printer.printLarge("This is a very long text that needs to be broken into multiple lines to fit within the maximum print length.");
+    ```
+
+3. **Print a formatted string:**
+    ```java
+    Printer.printf("Hello %s", "World");
+    ```
 
 ## Customization
 
-You can customize the maximum print length of the console output by modifying the `maxPrintLength` variable in the `Main` class. You can modify the Database by modifying the first line of the file (ex Id;Name;Password or Credit;Username;Email;....)
+You can customize the maximum print length by modifying the `maxPrintLength` variable:
+
+```java
+Printer.setMaxPrintLength(80);
+```
+
+This customization allows you to adjust the console output width to better fit your display requirements.
 
 ## Contributing
 
 We welcome contributions! Please fork the repository and create a pull request with your changes.
 
-I will make the Password Manager as well as the task manager in the future
-
 ## Ideas
 
-- Add multiple database 
+- Connect to the browser with an extension to save passwords.
+- Implement encryption for passwords.
+- Provide backup for data deletion.
+- Develop an algorithm that automatically fills empty fields of a task.
+- Add more customization to the database, such as specifying the separator.
+- Consider simplifying the visual appearance.
 
-- Can be configured with a .config/.conf file
-
- database for password manager, for task manager 
- 
- (connected to the browser with an extension which save password)
- 
- encryption for password
-
- backup for data deletion
-
- algorithm that fill automaticly empty field of a task
-
-- Add more customization to the database like for the separator
-
-- Be less Beautiful
+SelfON is a versatile tool for managing personal data securely and efficiently, designed with a user-friendly console interface. Whether you need to keep track of passwords, manage tasks, or organize other data, SelfON provides a robust solution tailored to your needs.
