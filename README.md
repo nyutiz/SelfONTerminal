@@ -199,8 +199,20 @@ I will make the Password Manager as well as the task manager in the future
 
 ## Ideas
 
-Add multiple database 
+- Add multiple database 
 
--- can be configured with a .config file
+- Can be configured with a .config/.conf file
 
---- database for password manager, for task manager 
+ database for password manager, for task manager 
+ 
+ (connected to the browser with an extension which save password)
+ 
+ encryption for password
+
+ backup for data deletion
+
+ algorithm that fill automaticly empty field of a task
+
+- Add more customization to the database like for the separator
+
+- Be less Beautiful
