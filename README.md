@@ -74,8 +74,6 @@ The `Main` class is the entry point of the SelfON application. It provides a con
    - **Sort Database:** Sort the database based on specified descriptors.
    - **Create Database:** Create a new database with specified fields.
 
-7. **User Interaction:** The application uses a `Scanner` object to read user input and execute commands accordingly, providing a responsive and interactive console experience.
-
 ### Using the Program
 
 1. **Starting the Application:**
