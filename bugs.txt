@@ -4,5 +4,33 @@
 -A Database is already loaded crash-
 -Quand une db est pas chargé il affiche quand meme loaded-
 -Quand on met le chemin complet ça l'affiche dans current DB et DBMap-
+-Rajouter un = quand on est dans un sous menu par exemple Load DB / Config-
 
-Rajouter un = quand on est dans un sous menu par exemple Load DB / Config
+-Ajouter password manager et taskmanager
+-Ajouter in progress / in progress etc quand on crée une data de task manager-
+-ex ...;Status:to do/in progress/completed;....-
+
+Triers les données
+    -High                   -High                  -High / Due Date / To Do
+    -To Do                  -Medium                -High / To Do
+    -In Progress            -Low                   -
+    -Medium                 -To Do                 -
+    -Low                    -In Progress           -
+    -Completed              -Completed             -
+
+
+Plus Today Date proche de Due Date plus le score est élevé
+    ou Priority et Due Date sont liés
+
+High * 100
+Medium * 50
+Low * 10
+
+To Do * 75
+In progress * 50
+Completed * 0
+
+exemple
+    High, To Do *100*50
+    High In Progress *100*20
+    I

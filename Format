@@ -1,0 +1,51 @@
+Task Manager:
+
+    Id: Unique identifier for the task.
+        Example: 0000000
+    Title: Title or name of the task.
+        Example: French Exercise
+
+    Description: Detailed description of the task.
+        Example: n°5 Page 123
+
+    Status: Status of the task.
+        Possible values: to do / in progress / completed
+        Example: to do
+
+    Priority: Priority of the task.
+        Possible values: high / medium / low
+        Example: high
+
+    CreationDate: Creation date of the task.
+        Format: MM/DD/YYYY
+        Example: 01/01/2024
+
+    DueDate: Due date of the task.
+        Format: MM/DD/YYYY
+        Example: 12/31/2024
+
+    UpdateDate: Last update date of the task.
+        Format: MM/DD/YYYY
+        Example: 01/02/2024
+
+    Category: Category of the task.
+        Possible values: Personal / Professional
+        Example: Personal
+
+    0000000;French Exercise;n°5 Page 123;to do/in progress/completed;high/medium/low;01/01/2024;12/31/2024;01/02/2024;Personal/Professional
+
+
+
+
+Password Manager:
+
+    Id: Unique identifier for the account.
+        Example: 0000000
+    Service: Name of the service or website.
+        Example: Google
+    Email: Email address associated with the account.
+        Example: example@mail.com
+    Password: Password for the account.
+        Example: StrongPasswordForGoogle
+
+    0000000;Google;example@mail.com;StrongPasswordForGoogle

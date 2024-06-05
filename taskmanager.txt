@@ -1,0 +1,5 @@
+Id;Score;Title;Description;Status:to do/in progress/completed;Priority:high/medium/low;CreationDate;DueDate;UpdateDate;Category:Personal/Professional
+8777669;7000;agagaghhaz;gaaga;to do;high;tat;gagag;gagag;Personal
+2919618;2500;Englush;ragfag;in progress;medium;gagag;gagag;gaga;Personal
+5968714;1;Do Some Gym;20 pushup;to do;medium;06/04/2024;no;no;Personal
+9136790;1;agaggaa;gagagag;to do;high;gggggg;hghhhhh;ggg;Personal
