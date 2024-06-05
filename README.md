@@ -2,7 +2,7 @@
 
 SelfON is a console-based application designed to help users manage their passwords, tasks, and general database entries efficiently. This README provides comprehensive instructions on how to install, use, and customize the SelfON application, along with a detailed overview of its features.
 
-![Demo](https://github.com/nyutiz/SelfONTerminal/blob/main/example2.png)
+![Demo](https://github.com/nyutiz/SelfONTerminal/blob/main/demo.png)
 
 ## Table of Contents
 - [Installation](#installation)
